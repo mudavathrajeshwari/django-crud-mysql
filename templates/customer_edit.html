@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Customer</title>
+
+    <link
+        href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+        rel="stylesheet">
+</head>
+
+<body>
+    <div class="container mt-5">
+
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item">
+                    <a href="{% url 'index' %}">Home</a>
+                </li>
+                <li class="breadcrumb-item active">Edit Customer</li>
+            </ol>
+        </nav>
+
+        <div class="row mt-5">
+            <div class="col-md-6">
+
+                <div class="card p-3">
+                    <div class="card-body">
+
+                        <h4>Edit Customer</h4>
+                        <hr>
+
+                        <form method="POST">
+                            {% csrf_token %}
+
+                            <div class="mb-3">
+                                <label class="form-label">Customer ID</label>
+                                <input type="text"
+                                       class="form-control form-control-sm"
+                                       value="{{ customer.cid }}"
+                                       readonly>
+                            </div>
+
+                            <div class="mb-3">
+                                <label class="form-label">Name</label>
+                                <input type="text"
+                                       class="form-control form-control-sm"
+                                       name="cname"
+                                       value="{{ customer.cname }}"
+                                       required>
+                            </div>
+
+                            <div class="mb-3">
+                                <label class="form-label">Email</label>
+                                <input type="email"
+                                       class="form-control form-control-sm"
+                                       name="cemail"
+                                       value="{{ customer.cemail }}"
+                                       required>
+                            </div>
+
+                            <div class="mb-3">
+                                <label class="form-label">City</label>
+                                <input type="text"
+                                       class="form-control form-control-sm"
+                                       name="ccity"
+                                       value="{{ customer.ccity }}"
+                                       required>
+                            </div>
+
+                            <input type="submit"
+                                   value="Update Customer"
+                                   class="btn btn-primary btn-sm">
+
+                            <a href="{% url 'index' %}"
+                               class="btn btn-secondary btn-sm">
+                                Cancel
+                            </a>
+
+                        </form>
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+</body>
+</html>
