@@ -1,0 +1,7 @@
+djangoenv1/
+__pycache__/
+*.py[cod]
+*.log
+.env
+.vscode/
+db.sqlite3
